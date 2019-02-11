@@ -8,7 +8,7 @@ import model.conv_rnn
 
 def prepare_conv_rnn():
   root_dir = '/home/jiac/data_8t/actev' # aws1
-  props_types = ['hty_v1_props']
+  props_types = ['gt']
   ft_name = 'i3d_rgb'
   trn_data_dirs = [
     os.path.join(root_dir, 'compiled_data_loop', props_type, ft_name, 'trn') for props_type in props_types

@@ -1,7 +1,6 @@
 Usage Documentation
 ====
 ```sh
-root@ec833b506ef3:/home/jiac/code/python/template/diva_conv_rnn_trn/trntst/driver# python conv_rnn.py -h
 usage: conv_rnn.py [-h] [--is_train IS_TRAIN] [--best_epoch BEST_EPOCH]
                    [--data_dir DATA_DIR] [--out_name OUT_NAME]
                    model_cfg_file path_cfg_file
@@ -32,4 +31,13 @@ optional arguments:
   --out_name OUT_NAME   
                         option only in tst mode, the output file name in tst
 ```
+
+Technical Details
 ====
+
+Testing
+====
+1. test in docker interactive shell
+```sh
+
+```
