@@ -16,7 +16,7 @@ import framework.util.io
 '''
 def prepare_data():
   root_dir = '/home/jiac/data_8t/actev'
-  lst_file = os.path.join(root_dir, 'official_data', 'VIRAT-V1_JSON_train-leaderboard_drop4_20180614', 'file-index.json'),
+  lst_file = os.path.join(root_dir, 'official_data', 'VIRAT-V1_JSON_train-leaderboard_drop4_20180614', 'file-index.json')
 
   props_type = 'gt'
   ft_name = 'i3d_rgb'
