@@ -263,8 +263,7 @@ class AbstractModel(AbstractModule):
   def _calculate_gradient(self, base_lr):
     loss_op = self._outputs[self.DefaultKey.LOSS]
 
-    train_ops = _recursive_train_ops(self, base_lr, loss_op, 
-      save_memory=self._config.save_memory)
+    train_ops = _recursive_train_ops(self, base_lr, loss_op)
     return train_ops
 
 
