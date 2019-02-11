@@ -353,7 +353,7 @@ class Reader(framework.model.data.Reader):
     for data_dir in data_dirs:
       names = os.listdir(data_dir)
       names = sorted(names)
-      # names = names[:1]
+      names = names[:1]
 
       options = tf.python_io.TFRecordOptions(tf.python_io.TFRecordCompressionType.GZIP)
       for name in names:
