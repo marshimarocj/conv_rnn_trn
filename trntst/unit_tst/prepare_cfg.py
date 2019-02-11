@@ -20,7 +20,7 @@ def prepare_conv_rnn():
     'dim_hiddens': [256],
     'dim_embed': 256,
     'cell_dim_hidden': 256,
-    'num_step': 64,
+    'num_step': 32,
     'num_pos_class': 19,
     'conv_kernel': [3,3],
     'cell': 'gru',

@@ -44,8 +44,8 @@ def gen_cfg(**kwargs):
   cfg = ModelConfig()
   cfg.val_iter = -1
   cfg.monitor_iter = 50
-  cfg.trn_batch_size = 32
-  cfg.tst_batch_size = 32
+  cfg.trn_batch_size = 8
+  cfg.tst_batch_size = 8
   cfg.base_lr = 1e-4
   cfg.val_loss = False
   cfg.num_epoch = 10
