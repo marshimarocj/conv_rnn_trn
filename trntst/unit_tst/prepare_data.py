@@ -11,6 +11,67 @@ from diva_common.structure.annotation import *
 
 '''func
 '''
+def bilinear_interpolate_align(im, h, w):
+  oh, ow, _ = im.shape
+  oh = float(oh)
+  ow = float(ow)
+  y = np.arange(h) * (oh-1) / (h-1) # align start and end point, [start, end]
+  x = np.arange(w) * (ow-1) / (w-1)
+  y, x = np.meshgrid(y, x, indexing='ij')
+  y = y.reshape((-1,))
+  x = x.reshape((-1,))
+
+  x0 = np.floor(x).astype(int)
+  x0[-1] -= 1
+  x1 = x0 + 1
+  y0 = np.floor(y).astype(int)
+  y0[-1] -= 1
+  y1 = y0 + 1
+
+  Ia = im[y0, x0]
+  Ib = im[y1, x0]
+  Ic = im[y0, x1]
+  Id = im[y1, x1]
+
+  wa = (x1-x) * (y1-y)
+  wb = (x1-x) * (y-y0)
+  wc = (x-x0) * (y1-y)
+  wd = (x-x0) * (y-y0)
+
+  wa = np.expand_dims(wa, 1)
+  wb = np.expand_dims(wb, 1)
+  wc = np.expand_dims(wc, 1)
+  wd = np.expand_dims(wd, 1)
+
+  I = wa*Ia + wb*Ib + wc*Ic + wd*Id
+  return I.reshape((h, w, -1))
+
+
+def norm_ft(ft_file, dst_h=7, dst_w=7):
+  data = np.load(ft_file)
+  fts = data['feat']
+  if len(fts.shape) == 0:
+    return None
+
+  num, t, h, w, c = fts.shape
+  if h != dst_h or w != dst_w:
+    resize_fts = []
+    for segment_ft in fts:
+      segment = []
+      for ft in segment_ft:
+        resize_ft = bilinear_interpolate(ft, h, w)
+        segment.append(resize_ft)
+      resize_fts.append(segment)
+    fts = np.array(resize_fts, dtype=np.float32)
+
+  dim_ft = fts.shape[-1]
+
+  mean_ft = np.zeros((t+t/2*(fts.shape[0]-1), h, w, dim_ft), dtype=np.float32)
+  for j, ft in enumerate(fts):
+    mean_ft[j*t/2:j*t/2+t] += ft
+  mean_ft[t/2:-t/2] /= 2.
+
+  return mean_ft
 
 
 '''expr
