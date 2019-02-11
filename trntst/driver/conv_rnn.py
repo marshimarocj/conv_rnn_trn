@@ -18,12 +18,10 @@ def build_parser():
 
   parser.add_argument('model_cfg_file', description='''
  configuration file of model and train paramters
-    ''', 
-    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    ''')
   parser.add_argument('path_cfg_file', description='''
 configuration file of data and experiment directories
-    ''',
-    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    ''')
   parser.add_argument('--is_train', dest='is_train', type=int, default=True,
     description='''
 1 for train mode and 0 for test mode
