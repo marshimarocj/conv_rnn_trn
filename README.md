@@ -38,10 +38,3 @@ Technical Details
 2. look at /app/trntst/unit_tst/prepare_cfg.py for the code to generate model_cfg_file and path_cfg_file
 3. look at /app/trntst/unit_tst/trn.sh for the script to run trn mode
 4. look at /app/trntst/unit_tst/tst.sh for the script to run tst mode
-
-Testing
-====
-1. test in docker interactive shell
-```sh
-
-```

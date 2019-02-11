@@ -350,13 +350,15 @@ class Reader(framework.model.data.Reader):
     with open(label2lid_file) as f:
       self.label2lid = json.load(f)
 
+    cnt = 0
     for data_dir in data_dirs:
       names = os.listdir(data_dir)
       names = sorted(names)
-      names = names[:1]
+      names = names[-1:]
 
       options = tf.python_io.TFRecordOptions(tf.python_io.TFRecordCompressionType.GZIP)
       for name in names:
+        print name
         chunk_file = os.path.join(data_dir, name)
         record_iterator = tf.python_io.tf_record_iterator(path=chunk_file, options=options)
         record_iterator.next()
@@ -366,6 +368,9 @@ class Reader(framework.model.data.Reader):
           self.labels.append(label)
           self.masks.append(label_mask)
           self.props_names.append('%s_%d'%(video, eid))
+          cnt += 1
+          if cnt % 500 == 0:
+            print 'loading', cnt
 
     self.total = len(self.fts)
     self.idxs = range(self.total)
