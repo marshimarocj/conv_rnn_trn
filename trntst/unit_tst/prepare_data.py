@@ -81,6 +81,7 @@ def prepare_data():
   lst_file = os.path.join(root_dir, 'official_data', 'VIRAT-V1_JSON_train-leaderboard_drop4_20180614', 'file-index.json')
 
   props_type = 'gt'
+  split = 'trn'
   ft_name = 'i3d_rgb'
   chunk = 0
 
