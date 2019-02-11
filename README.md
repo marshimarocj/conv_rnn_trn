@@ -34,6 +34,10 @@ optional arguments:
 
 Technical Details
 ====
+1. look at /app/trntst/unit_tst/prepare_data.py for the code to prepare data for trn and tst, the data is stored in tf records format
+2. look at /app/trntst/unit_tst/prepare_cfg.py for the code to generate model_cfg_file and path_cfg_file
+3. look at /app/trntst/unit_tst/trn.sh for the script to run trn mode
+4. look at /app/trntst/unit_tst/tst.sh for the script to run tst mode
 
 Testing
 ====
