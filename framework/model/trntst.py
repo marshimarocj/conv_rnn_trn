@@ -10,8 +10,6 @@ sys.path.append('../')
 import tensorflow as tf
 from tensorflow.python.pywrap_tensorflow import NewCheckpointReader
 
-import toolkit
-
 
 class PathCfg(object):
   def __init__(self):
