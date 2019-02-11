@@ -14,7 +14,7 @@ def prepare_conv_rnn():
     os.path.join(root_dir, 'compiled_data_loop', props_type, ft_name, 'trn') for props_type in props_types
   ]
   val_data_dir = os.path.join(root_dir, 'compiled_data_loop', 'heu_gt_obj_props', ft_name, 'val')
-  expr_dir = os.path.join(root_dir, 'expr_loop', 'conv_rnn')
+  expr_dir = os.path.join(root_dir, 'expr_deliver', 'conv_rnn')
 
   params = {
     'dim_hiddens': [256],
