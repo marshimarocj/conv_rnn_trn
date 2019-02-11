@@ -227,7 +227,7 @@ class TrnTst(object):
     with tf.Session(graph=tst_graph, config=config_proto) as sess:
       sess.run(self.model.init_op)
       if self.path_cfg.model_file is not None:
-        self._restore(sess, tst_graph, self.path_cfg.model_file)
+        self.model.saver.restore(sess, self.path_cfg.model_file)
 
       self.predict_in_tst(sess, tst_reader, self.path_cfg.predict_file)
 
