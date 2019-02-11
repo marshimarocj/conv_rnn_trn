@@ -19,6 +19,7 @@ def prepare_data():
   lst_file = os.path.join(root_dir, 'official_data', 'VIRAT-V1_JSON_train-leaderboard_drop4_20180614', 'file-index.json'),
 
   props_type = 'gt'
+  ft_name = 'i3d_rgb'
   chunk = 0
 
   with open(lst_file) as f:
@@ -29,6 +30,7 @@ def prepare_data():
   actv_dir = os.path.join(root_dir, 'proposal_annotations', props_type)
   ft_dir = os.path.join(root_dir, 'features', props_type, ft_name)
   label_dir = os.path.join(root_dir, 'compiled_label', props_type)
+  out_dir = os.path.join(root_dir, 'expr_deliver', ft_name)
 
   records = []
   for video in videos:
