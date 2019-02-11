@@ -14,30 +14,33 @@ RNN = model.conv_rnn.CONV_RNN
 
 
 def build_parser():
-  parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
+  parser = argparse.ArgumentParser(description='''
+functions: two modes, trn mode for trn and validation, tst mode for tst (prediction)
+    ''',
+    formatter_class=argparse.RawTextHelpFormatter)
 
-  parser.add_argument('model_cfg_file', description='''
+  parser.add_argument('model_cfg_file', help='''
  configuration file of model and train paramters
     ''')
-  parser.add_argument('path_cfg_file', description='''
+  parser.add_argument('path_cfg_file', help='''
 configuration file of data and experiment directories
     ''')
   parser.add_argument('--is_train', dest='is_train', type=int, default=True,
-    description='''
+    help='''
 1 for train mode and 0 for test mode
     ''',
     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
   # only in tst
   parser.add_argument('--best_epoch', dest='best_epoch', type=int, default=0,
-    description='''
+    help='''
 option only in tst mode, the epoch used in tst
     ''',
     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-  parser.add_argument('--data_dir', default='', description='''
+  parser.add_argument('--data_dir', default='', help='''
 option only in tst mode, the data_dir used in tst
     ''',
     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-  parser.add_argument('--out_name', default='', description='''
+  parser.add_argument('--out_name', default='', help='''
 option only in tst mode, the output file name in tst
     ''',
     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
