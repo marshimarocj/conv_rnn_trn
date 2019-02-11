@@ -48,7 +48,7 @@ def gen_cfg(**kwargs):
   cfg.tst_batch_size = 32
   cfg.base_lr = 1e-4
   cfg.val_loss = False
-  cfg.num_epoch = 100
+  cfg.num_epoch = 10
   cfg.num_pos_class = kwargs['num_pos_class']
   cfg.h = kwargs['hw'][0]
   cfg.w = kwargs['hw'][1]
