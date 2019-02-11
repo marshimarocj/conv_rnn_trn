@@ -6,6 +6,7 @@ import numpy as np
 import tensorflow as tf
 
 import framework.util.io
+from diva_common.structure.annotation import *
 
 
 '''func
