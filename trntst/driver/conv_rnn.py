@@ -28,22 +28,18 @@ configuration file of data and experiment directories
   parser.add_argument('--is_train', dest='is_train', type=int, default=True,
     help='''
 1 for train mode and 0 for test mode
-    ''',
-    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    ''')
   # only in tst
   parser.add_argument('--best_epoch', dest='best_epoch', type=int, default=0,
     help='''
 option only in tst mode, the epoch used in tst
-    ''',
-    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    ''')
   parser.add_argument('--data_dir', default='', help='''
 option only in tst mode, the data_dir used in tst
-    ''',
-    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    ''')
   parser.add_argument('--out_name', default='', help='''
 option only in tst mode, the output file name in tst
-    ''',
-    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    ''')
 
   return parser
 
